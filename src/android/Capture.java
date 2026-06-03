@@ -273,8 +273,6 @@ public class Capture extends CordovaPlugin {
      * Sets up an intent to capture audio.  Result handled by onActivityResult()
      */
     private void captureAudio(Request req) {
-        if (isMissingPermissions(req, Manifest.permission.READ_MEDIA_AUDIO)) return;
-
         try {
             Intent intent = new Intent(android.provider.MediaStore.Audio.Media.RECORD_SOUND_ACTION);
             this.cordova.startActivityForResult((CordovaPlugin) this, intent, req.requestCode);
